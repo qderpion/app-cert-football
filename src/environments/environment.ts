@@ -10,7 +10,7 @@ export const environment: AppConfiguration = {
       'get-fixtures': '/fixtures',
     },
   },
-  leagues: [
+  countries: [
     {
       name: 'england',
       id: 39,

@@ -10,5 +10,5 @@ export interface AppConfiguration {
       [key: string]: string;
     };
   };
-  leagues: Country[];
+  countries: Country[];
 }

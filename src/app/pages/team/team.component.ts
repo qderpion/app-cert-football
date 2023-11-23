@@ -1,5 +1,5 @@
 import { CdkTableModule } from '@angular/cdk/table';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterGoBackDirective } from '../../directives/router-go-back.directive';
 import { Fixture } from '../../interfaces';
@@ -7,12 +7,7 @@ import { Fixture } from '../../interfaces';
 @Component({
   selector: 'app-team',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterGoBackDirective,
-    CdkTableModule,
-    NgOptimizedImage,
-  ],
+  imports: [CommonModule, RouterGoBackDirective, CdkTableModule],
   templateUrl: './team.component.html',
   styleUrl: './team.component.scss',
 })

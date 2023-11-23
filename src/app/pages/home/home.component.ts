@@ -1,5 +1,5 @@
 import { CdkTableModule } from '@angular/cdk/table';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MenuCountryComponent } from '../../components/menu-country/menu-country.component';
@@ -11,15 +11,12 @@ import { FootballService } from '../../services';
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  imports: [
-    CommonModule,
-    CdkTableModule,
-    NgOptimizedImage,
-    MenuCountryComponent,
-    RouterLink,
-  ],
+  imports: [CommonModule, CdkTableModule, MenuCountryComponent, RouterLink],
 })
 export class HomeComponent {
+  /**
+   * Les colonnes à afficher dans le tableau
+   */
   public readonly displayedColumns: string[] = [
     'rank',
     'logo',
@@ -31,6 +28,7 @@ export class HomeComponent {
     'goalsDiff',
     'points',
   ];
+
   /**
    * @param footballService Le service FootballService
    */

@@ -18,7 +18,7 @@ export class ConfigurationService {
    * Permet de récupérer les pays disponibles
    */
   public get countries(): Country[] {
-    return this.configuration.leagues;
+    return this.configuration.countries;
   }
 
   /**

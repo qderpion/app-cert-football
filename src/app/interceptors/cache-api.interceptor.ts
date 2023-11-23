@@ -40,7 +40,7 @@ export class CacheApiInterceptor implements HttpInterceptor {
 
     // Si la requête est cacheable, on regarde si on a déjà la réponse en cache
     const cachedResponse = this.requestCacheService.get(req);
-    // Si on a déjà la réponse en cache, on la retourne
+    // Si on a déjà la réponse en cache, on la retourne, sinon on envoie la requête avec mise en cache de la réponse
     return cachedResponse ? of(cachedResponse) : this.sendRequest(req, next);
   }
 
