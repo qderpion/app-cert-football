@@ -1,0 +1,35 @@
+* {
+  font-family: Arial, sans-serif;
+  font-size: var(--font-normal);
+}
+
+body {
+  background-image: url("../assets/images/background.jpg");
+  background-size: cover;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bolder;
+  font-size: var(--font-big);
+}
+
+.btn {
+  background-color: #117240;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
+table {
+  margin: 1rem auto;
+  background-color: #32b270e0;
+  text-align: center;
+  padding: 1rem 2rem;
+  th {
+    padding: 0 1rem;
+  }
+  img {
+    width: 1.5rem;
+  }
+}

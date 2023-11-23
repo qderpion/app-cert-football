@@ -1,0 +1,43 @@
+<table cdk-table [dataSource]="fixtures" aria-label="Fixtures of current team">
+  <ng-container cdkColumnDef="teamHomeLogo">
+    <th cdk-header-cell *cdkHeaderCellDef>Logo</th>
+    <td cdk-cell *cdkCellDef="let element">
+      <img [src]="element.teams.home.logo" ngOptimizedImage alt="" />
+    </td>
+  </ng-container>
+  <ng-container cdkColumnDef="teamHomeName">
+    <th cdk-header-cell *cdkHeaderCellDef>Name</th>
+    <td cdk-cell *cdkCellDef="let element">
+      {{ element.teams.home.name }}
+    </td>
+  </ng-container>
+  <ng-container cdkColumnDef="teamHomeScore">
+    <th cdk-header-cell *cdkHeaderCellDef>Score</th>
+    <td cdk-cell *cdkCellDef="let element">{{ element.score.home }}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="separator">
+    <th cdk-header-cell *cdkHeaderCellDef></th>
+    <td cdk-cell *cdkCellDef="let element">-</td>
+  </ng-container>
+  <ng-container cdkColumnDef="teamAwayScore">
+    <th cdk-header-cell *cdkHeaderCellDef>Score</th>
+    <td cdk-cell *cdkCellDef="let element">{{ element.score.away }}</td>
+  </ng-container>
+  <ng-container cdkColumnDef="teamAwayName">
+    <th cdk-header-cell *cdkHeaderCellDef>Name</th>
+    <td cdk-cell *cdkCellDef="let element">
+      {{ element.teams.away.name }}
+    </td>
+  </ng-container>
+  <ng-container cdkColumnDef="teamAwayLogo">
+    <th cdk-header-cell *cdkHeaderCellDef>Logo</th>
+    <td cdk-cell *cdkCellDef="let element">
+      <img [src]="element.teams.away.logo" ngOptimizedImage alt="" />
+    </td>
+  </ng-container>
+
+  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<button class="btn" routerGoBack>Back</button>

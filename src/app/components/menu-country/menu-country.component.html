@@ -1,0 +1,15 @@
+<nav role="navigation">
+  <ul>
+    @for(country of countries; track country.id) {
+    <li>
+      <button
+        [ngClass]="{ active: country === selectedCountry }"
+        [id]="country.name + 'Select'"
+        (click)="selectCountry(country)"
+      >
+        {{ country.name | titlecase }}
+      </button>
+    </li>
+    }
+  </ul>
+</nav>

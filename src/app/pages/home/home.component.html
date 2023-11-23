@@ -1,0 +1,57 @@
+<h1>FOOTBALL UPDATES</h1>
+<ng-container *ngIf="footballService.currentCountry$ | async as currentCountry">
+  <app-menu-country
+    [countries]="footballService.countries"
+    [selectedCountry]="currentCountry"
+    (selectedCountryChange)="selectCountry($event)"
+  ></app-menu-country>
+  <table
+    cdk-table
+    [dataSource]="footballService.standingCurrentCountry$"
+    [attr.aria-label]="'Standing of ' + currentCountry.name"
+  >
+    <ng-container cdkColumnDef="rank">
+      <th cdk-header-cell *cdkHeaderCellDef>Rank</th>
+      <td cdk-cell *cdkCellDef="let element">{{ element.rank }}</td>
+    </ng-container>
+    <ng-container cdkColumnDef="logo">
+      <th cdk-header-cell *cdkHeaderCellDef>Logo</th>
+      <td cdk-cell *cdkCellDef="let element">
+        <img [src]="element.team.logo" ngOptimizedImage alt="" />
+      </td>
+    </ng-container>
+    <ng-container cdkColumnDef="name">
+      <th cdk-header-cell *cdkHeaderCellDef>Name</th>
+      <td cdk-cell *cdkCellDef="let element">
+        <a [routerLink]="['team', element.team.id]">{{ element.team.name }}</a>
+      </td>
+    </ng-container>
+    <ng-container cdkColumnDef="games">
+      <th cdk-header-cell *cdkHeaderCellDef>Games</th>
+      <td cdk-cell *cdkCellDef="let element">{{ element.games }}</td>
+    </ng-container>
+    <ng-container cdkColumnDef="win">
+      <th cdk-header-cell *cdkHeaderCellDef>W</th>
+      <td cdk-cell *cdkCellDef="let element">{{ element.win }}</td>
+    </ng-container>
+    <ng-container cdkColumnDef="lose">
+      <th cdk-header-cell *cdkHeaderCellDef>L</th>
+      <td cdk-cell *cdkCellDef="let element">{{ element.lose }}</td>
+    </ng-container>
+    <ng-container cdkColumnDef="draw">
+      <th cdk-header-cell *cdkHeaderCellDef>D</th>
+      <td cdk-cell *cdkCellDef="let element">{{ element.draw }}</td>
+    </ng-container>
+    <ng-container cdkColumnDef="goalsDiff">
+      <th cdk-header-cell *cdkHeaderCellDef>Goal Difference</th>
+      <td cdk-cell *cdkCellDef="let element">{{ element.goalsDiff }}</td>
+    </ng-container>
+    <ng-container cdkColumnDef="points">
+      <th cdk-header-cell *cdkHeaderCellDef>Points</th>
+      <td cdk-cell *cdkCellDef="let element">{{ element.points }}</td>
+    </ng-container>
+
+    <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+    <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</ng-container>
