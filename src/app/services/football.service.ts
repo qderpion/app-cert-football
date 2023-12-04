@@ -68,7 +68,7 @@ export class FootballService {
       .getStandings(year.toString(), league.toString())
       .pipe(
         map((response: ApiResponse<GetStagingsResponse>) => {
-          return response.response[0].league.standings[0].reduce(
+          return response.response[0]?.league.standings[0].reduce(
             (acc, standing) => {
               acc.push(mapStanding(standing));
               return acc;
